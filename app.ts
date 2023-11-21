@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express, { Request,Response,NextFunction } from "express"
 export const app = express();
+import { ErrorMiddleware } from "./server/middleware/error";
 
 //Username: caghi796
 //Password: 4dI61xCUTlz1tqwf
@@ -32,3 +33,4 @@ app.all('*',(req:Request,res:Response,next:NextFunction) => {
     next(err)
 })
 
+app.use(ErrorMiddleware)
